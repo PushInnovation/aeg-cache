@@ -1,6 +1,14 @@
 import Redis from '@adexchange/aeg-redis';
 import moment from 'moment-timezone';
 
+// start of week is Monday
+moment.updateLocale('en', {
+	week: {
+		dow: 1,
+		doy: 4
+	}
+});
+
 export const INTERVAL_KEY = 'i';
 
 /**
