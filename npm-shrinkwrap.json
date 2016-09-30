@@ -1,6 +1,6 @@
 {
   "name": "@adexchange/aeg-cache",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "dependencies": {
     "@adexchange/aeg-redis": {
       "version": "0.0.19",
