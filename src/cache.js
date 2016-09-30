@@ -32,21 +32,21 @@ class Cache extends Redis {
 
 		switch (interval) {
 			case 'minutely':
-				return `${CACHE_KEYS.INTERVAL_KEY}:year:${intervals.yearLabel}:month:${intervals.monthLabel}:day:${intervals.dayLabel}:hour:${intervals.hourLabel}:minute:${intervals.minuteLabel}`;
+				return `${INTERVAL_KEY}:year:${intervals.yearLabel}:month:${intervals.monthLabel}:day:${intervals.dayLabel}:hour:${intervals.hourLabel}:minute:${intervals.minuteLabel}`;
 			case 'hourly':
-				return `${CACHE_KEYS.INTERVAL_KEY}:year:${intervals.yearLabel}:month:${intervals.monthLabel}:day:${intervals.dayLabel}:hour:${intervals.hourLabel}`;
+				return `${INTERVAL_KEY}:year:${intervals.yearLabel}:month:${intervals.monthLabel}:day:${intervals.dayLabel}:hour:${intervals.hourLabel}`;
 			case 'daily':
-				return `${CACHE_KEYS.INTERVAL_KEY}:year:${intervals.yearLabel}:month:${intervals.monthLabel}:day:${intervals.dayLabel}`;
+				return `${INTERVAL_KEY}:year:${intervals.yearLabel}:month:${intervals.monthLabel}:day:${intervals.dayLabel}`;
 			case 'yesterday':
-				return `${CACHE_KEYS.INTERVAL_KEY}:year:${intervals.yearLabel}:month:${intervals.monthLabel}:day:${intervals.yesterdayLabel}`;
+				return `${INTERVAL_KEY}:year:${intervals.yearLabel}:month:${intervals.monthLabel}:day:${intervals.yesterdayLabel}`;
 			case 'weekly':
-				return `${CACHE_KEYS.INTERVAL_KEY}:year:${intervals.yearLabel}:week:${intervals.weekLabel}`;
+				return `${INTERVAL_KEY}:year:${intervals.yearLabel}:week:${intervals.weekLabel}`;
 			case 'last-week':
-				return `${CACHE_KEYS.INTERVAL_KEY}:year:${intervals.yearLabel}:week:${intervals.lastWeekLabel}`;
+				return `${INTERVAL_KEY}:year:${intervals.yearLabel}:week:${intervals.lastWeekLabel}`;
 			case 'monthly':
-				return `${CACHE_KEYS.INTERVAL_KEY}:year:${intervals.yearLabel}:month:${intervals.monthLabel}`;
+				return `${INTERVAL_KEY}:year:${intervals.yearLabel}:month:${intervals.monthLabel}`;
 			case 'yearly':
-				return `${CACHE_KEYS.INTERVAL_KEY}:year:${intervals.yearLabel}`;
+				return `${INTERVAL_KEY}:year:${intervals.yearLabel}`;
 		}
 
 	}
