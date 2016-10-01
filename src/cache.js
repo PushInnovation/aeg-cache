@@ -1,5 +1,6 @@
 import Redis from '@adexchange/aeg-redis';
 import moment from 'moment-timezone';
+import * as CacheKeys from './cache-keys';
 
 // start of week is Monday
 moment.updateLocale('en', {
@@ -8,8 +9,6 @@ moment.updateLocale('en', {
 		doy: 4
 	}
 });
-
-export const INTERVAL_KEY = 'i';
 
 /**
  * Redis cache that resolves keys based on time frames
@@ -40,21 +39,21 @@ class Cache extends Redis {
 
 		switch (interval) {
 			case 'minutely':
-				return `${INTERVAL_KEY}:year:${intervals.yearLabel}:month:${intervals.monthLabel}:day:${intervals.dayLabel}:hour:${intervals.hourLabel}:minute:${intervals.minuteLabel}`;
+				return `${CacheKeys.INTERVAL_KEY}:year:${intervals.yearLabel}:month:${intervals.monthLabel}:day:${intervals.dayLabel}:hour:${intervals.hourLabel}:minute:${intervals.minuteLabel}`;
 			case 'hourly':
-				return `${INTERVAL_KEY}:year:${intervals.yearLabel}:month:${intervals.monthLabel}:day:${intervals.dayLabel}:hour:${intervals.hourLabel}`;
+				return `${CacheKeys.INTERVAL_KEY}:year:${intervals.yearLabel}:month:${intervals.monthLabel}:day:${intervals.dayLabel}:hour:${intervals.hourLabel}`;
 			case 'daily':
-				return `${INTERVAL_KEY}:year:${intervals.yearLabel}:month:${intervals.monthLabel}:day:${intervals.dayLabel}`;
+				return `${CacheKeys.INTERVAL_KEY}:year:${intervals.yearLabel}:month:${intervals.monthLabel}:day:${intervals.dayLabel}`;
 			case 'yesterday':
-				return `${INTERVAL_KEY}:year:${intervals.yearLabel}:month:${intervals.monthLabel}:day:${intervals.yesterdayLabel}`;
+				return `${CacheKeys.INTERVAL_KEY}:year:${intervals.yearLabel}:month:${intervals.monthLabel}:day:${intervals.yesterdayLabel}`;
 			case 'weekly':
-				return `${INTERVAL_KEY}:year:${intervals.yearLabel}:week:${intervals.weekLabel}`;
+				return `${CacheKeys.INTERVAL_KEY}:year:${intervals.yearLabel}:week:${intervals.weekLabel}`;
 			case 'last-week':
-				return `${INTERVAL_KEY}:year:${intervals.yearLabel}:week:${intervals.lastWeekLabel}`;
+				return `${CacheKeys.INTERVAL_KEY}:year:${intervals.yearLabel}:week:${intervals.lastWeekLabel}`;
 			case 'monthly':
-				return `${INTERVAL_KEY}:year:${intervals.yearLabel}:month:${intervals.monthLabel}`;
+				return `${CacheKeys.INTERVAL_KEY}:year:${intervals.yearLabel}:month:${intervals.monthLabel}`;
 			case 'yearly':
-				return `${INTERVAL_KEY}:year:${intervals.yearLabel}`;
+				return `${CacheKeys.INTERVAL_KEY}:year:${intervals.yearLabel}`;
 		}
 
 	}

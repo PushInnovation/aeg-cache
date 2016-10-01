@@ -1,10 +1,5 @@
 import Cache from './cache';
-
-const OFFER_PAIR_KEY = 'op';
-const VERTICAL_KEY = 'v';
-const DEVICE_KEY = 'd';
-const AFFILIATE_KEY = 'a';
-const SUB_KEY = 's';
+import * as CacheKeys from './cache-keys';
 
 class ReportingCache extends Cache {
 
@@ -21,31 +16,31 @@ class ReportingCache extends Cache {
 
 		if (options.affiliateId && options.affiliateId !== 'all') {
 
-			key = [key, AFFILIATE_KEY, options.affiliateId].join(':');
+			key = [key, CacheKeys.AFFILIATE_KEY, options.affiliateId].join(':');
 
 		}
 
 		if (options.sub && options.sub !== 'all') {
 
-			key = [key, SUB_KEY, options.sub].join(':');
+			key = [key, CacheKeys.SUB_KEY, options.sub].join(':');
 
 		}
 
 		if (options.offerPair && options.offerPair !== 'all') {
 
-			key = [key, OFFER_PAIR_KEY, options.offerPair.replace(':', '-')].join(':');
+			key = [key, CacheKeys.OFFER_PAIR_KEY, options.offerPair.replace(':', '-')].join(':');
 
 		}
 
 		if (options.vertical && options.vertical !== 'all') {
 
-			key = [key, VERTICAL_KEY, options.vertical].join(':');
+			key = [key, CacheKeys.VERTICAL_KEY, options.vertical].join(':');
 
 		}
 
 		if (options.device && options.device !== 'all') {
 
-			key = [key, DEVICE_KEY, options.device].join(':');
+			key = [key, CacheKeys.DEVICE_KEY, options.device].join(':');
 
 		}
 
