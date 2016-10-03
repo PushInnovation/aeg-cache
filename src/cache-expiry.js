@@ -25,7 +25,11 @@ export function expiryForInterval (interval) {
 			return MONTHLY;
 		case 'weekly':
 			return WEEKLY;
+		case 'last-week':
+			return WEEKLY;
 		case 'daily':
+			return DAILY;
+		case 'yesterday':
 			return DAILY;
 		case 'hourly':
 			return HOURLY;
