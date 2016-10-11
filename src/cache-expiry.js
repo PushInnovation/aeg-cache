@@ -33,6 +33,8 @@ export function expiryForInterval (interval) {
 			return DAILY;
 		case 'hourly':
 			return HOURLY;
+		case 'last-hour':
+			return HOURLY;
 		case 'minutely':
 			return MINUTELY;
 		default:
