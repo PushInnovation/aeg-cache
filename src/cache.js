@@ -42,6 +42,8 @@ class Cache extends Redis {
 				return `${CacheKeys.INTERVAL_KEY}:year:${intervals.yearLabel}:month:${intervals.monthLabel}:day:${intervals.dayLabel}:hour:${intervals.hourLabel}:minute:${intervals.minuteLabel}`;
 			case 'hourly':
 				return `${CacheKeys.INTERVAL_KEY}:year:${intervals.yearLabel}:month:${intervals.monthLabel}:day:${intervals.dayLabel}:hour:${intervals.hourLabel}`;
+			case 'last-hour':
+				return `${CacheKeys.INTERVAL_KEY}:year:${intervals.yearLabel}:month:${intervals.monthLabel}:day:${intervals.dayLabel}:hour:${intervals.lastHourLabel}`;
 			case 'daily':
 				return `${CacheKeys.INTERVAL_KEY}:year:${intervals.yearLabel}:month:${intervals.monthLabel}:day:${intervals.dayLabel}`;
 			case 'yesterday':
@@ -83,6 +85,8 @@ class Cache extends Redis {
 			minuteLabel: m.format('mm'),
 			hour: m.hour(),
 			hourLabel: m.format('HH'),
+			lastHour: m.clone().subtract(1, 'hours').hour(),
+			lastHourLabel: m.clone().subtract(1, 'hours').format('HH'),
 			day: m.day(),
 			dayLabel: m.format('DD'),
 			yesterday: m.clone().subtract(1, 'days').day(),
