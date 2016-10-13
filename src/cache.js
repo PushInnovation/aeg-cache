@@ -30,7 +30,7 @@ export default class Cache extends Redis {
 	/**
 	 * Resolved a cache key based on time intervals
 	 * @param {string} interval
-	 * @param {Object} [options]
+	 * @param {{[moment]: moment}} [options]
 	 * @return {string}
 	 */
 	resolveKey (interval, options) {
