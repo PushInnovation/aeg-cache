@@ -13,7 +13,7 @@ moment.updateLocale('en', {
 /**
  * Redis cache that resolves keys based on time frames
  */
-class Cache extends Redis {
+export default class Cache extends Redis {
 
 	/**
 	 * Constructor
@@ -104,5 +104,3 @@ class Cache extends Redis {
 	}
 
 }
-
-export default Cache;
