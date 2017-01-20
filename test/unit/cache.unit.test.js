@@ -14,6 +14,9 @@ describe('cache', async () => {
 		const hourly = cache.resolveKey('hourly', {moment: m});
 		hourly.should.be.equal('i:year:2017:month:01:day:17:hour:00');
 
+		const lastHour = cache.resolveKey('last-hour', {moment: m});
+		lastHour.should.be.equal('i:year:2017:month:01:day:16:hour:23');
+
 		const yesterday = cache.resolveKey('yesterday', {moment: m});
 		yesterday.should.be.equal('i:year:2017:month:01:day:16');
 
