@@ -1,7 +1,6 @@
 import Redis from '@adexchange/aeg-redis';
 import moment from 'moment-timezone';
 import * as CacheKeys from './cache-keys';
-import _ from 'lodash';
 
 // start of week is Monday
 moment.updateLocale('en', {
@@ -36,9 +35,7 @@ export default class Cache extends Redis {
 	 */
 	resolveKey (interval, options) {
 
-		const opts = _.cloneDeep(options || {});
-
-		let m = (opts && opts.moment) ? opts.moment.tz('America/New_York') : moment.tz('America/New_York');
+		let m = (options && options.moment) ? options.moment.clone().tz('America/New_York') : moment.tz('America/New_York');
 
 		switch (interval) {
 
