@@ -40,7 +40,7 @@
     "should": "^11.2.1"
   },
   "dependencies": {
-    "@adexchange/aeg-redis": "0.0.32",
+    "@adexchange/aeg-redis": "0.0.33",
     "lodash": "^4.17.4",
     "moment-timezone": "^0.5.13"
   },
