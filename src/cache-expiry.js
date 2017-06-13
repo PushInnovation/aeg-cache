@@ -19,6 +19,7 @@ export const MINUTELY = 300;
 export function expiryForInterval (interval) {
 
 	switch (interval) {
+
 		case 'yearly':
 			return YEARLY;
 		case 'monthly':
@@ -39,6 +40,7 @@ export function expiryForInterval (interval) {
 			return MINUTELY;
 		default:
 			throw new Error(`Redis expiry interval not valid: ${interval}`);
+
 	}
 
 }
