@@ -41,6 +41,7 @@ export default class Cache extends Redis {
 		let m = (opts && opts.moment) ? opts.moment.tz('America/New_York') : moment.tz('America/New_York');
 
 		switch (interval) {
+
 			case 'last-hour':
 				m.subtract(1, 'hours');
 				break;
@@ -52,11 +53,13 @@ export default class Cache extends Redis {
 				break;
 			default:
 				break;
+
 		}
 
 		const intervals = this._intervalLabels(m);
 
 		switch (interval) {
+
 			case 'minutely':
 				return `${CacheKeys.INTERVAL_KEY}:year:${intervals.yearLabel}:month:${intervals.monthLabel}:day:${intervals.dayLabel}:hour:${intervals.hourLabel}:minute:${intervals.minuteLabel}`;
 			case 'hourly':
@@ -75,6 +78,7 @@ export default class Cache extends Redis {
 				return `${CacheKeys.INTERVAL_KEY}:year:${intervals.yearLabel}:month:${intervals.monthLabel}`;
 			case 'yearly':
 				return `${CacheKeys.INTERVAL_KEY}:year:${intervals.yearLabel}`;
+
 		}
 
 	}
