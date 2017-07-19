@@ -1,14 +1,15 @@
-export const YEARLY = 31540000;
-
-export const MONTHLY = 2628000;
-
-export const WEEKLY = 604800;
-
-export const DAILY = 86400;
-
-export const HOURLY = 3600;
-
 export const MINUTELY = 60;
+
+export const HOURLY = MINUTELY * 60;
+
+export const DAILY = HOURLY * 24;
+
+export const WEEKLY = DAILY * 7;
+
+export const MONTHLY = DAILY * 31;
+
+// leap year
+export const YEARLY = DAILY * 366;
 
 export function expiryForInterval (interval) {
 
