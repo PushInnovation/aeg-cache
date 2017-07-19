@@ -42,7 +42,7 @@ export default class Cache extends Redis {
 	/**
 	 * Resolved a cache key based on time intervals
 	 */
-	public resolveKey (interval: string, options: { moment: moment.Moment }): string {
+	public resolveKey (interval: string, options: { moment?: moment.Moment }): string {
 
 		const m = (options && options.moment) ? options.moment.clone().tz('America/New_York') : moment.tz('America/New_York');
 
