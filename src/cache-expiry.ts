@@ -1,20 +1,15 @@
-// 2 years
-export const YEARLY = 63113904;
+export const MINUTELY = 60;
 
-// 2 months
-export const MONTHLY = 5184000;
+export const HOURLY = MINUTELY * 60;
 
-// 3 weeks
-export const WEEKLY = 1814400;
+export const DAILY = HOURLY * 24;
 
-// 3 days
-export const DAILY = 259200;
+export const WEEKLY = DAILY * 7;
 
-// 2 days
-export const HOURLY = 172800;
+export const MONTHLY = DAILY * 31;
 
-// 5 minutes
-export const MINUTELY = 300;
+// leap year
+export const YEARLY = DAILY * 366;
 
 export function expiryForInterval (interval) {
 
