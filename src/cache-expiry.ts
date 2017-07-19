@@ -1,20 +1,14 @@
-// 2 years
-export const YEARLY = 63113904;
+export const YEARLY = 31540000;
 
-// 2 months
-export const MONTHLY = 5184000;
+export const MONTHLY = 2628000;
 
-// 3 weeks
-export const WEEKLY = 1814400;
+export const WEEKLY = 604800;
 
-// 3 days
-export const DAILY = 259200;
+export const DAILY = 86400;
 
-// 2 days
-export const HOURLY = 172800;
+export const HOURLY = 3600;
 
-// 5 minutes
-export const MINUTELY = 300;
+export const MINUTELY = 60;
 
 export function expiryForInterval (interval) {
 
