@@ -1,6 +1,21 @@
 import Redis from '@adexchange/aeg-redis';
-import moment from 'moment-timezone';
+import * as moment from 'moment-timezone';
 import * as CacheKeys from './cache-keys';
+
+export interface IIntervalLabels {
+	minute: number;
+	minuteLabel: string;
+	hour: number;
+	hourLabel: string;
+	day: number;
+	dayLabel: string;
+	month: number;
+	monthLabel: string;
+	week: number;
+	weekLabel: string;
+	year: number;
+	yearLabel: string;
+}
 
 // start of week is Monday
 moment.updateLocale('en', {
@@ -17,11 +32,8 @@ export default class Cache extends Redis {
 
 	/**
 	 * Constructor
-	 * @param {string} host
-	 * @param {number} port
-	 * @param {string} prefix
 	 */
-	constructor (host, port, prefix) {
+	constructor (host: string, port: number, prefix: string) {
 
 		super({host, port, prefix: prefix + ':'});
 
@@ -29,13 +41,10 @@ export default class Cache extends Redis {
 
 	/**
 	 * Resolved a cache key based on time intervals
-	 * @param {string} interval
-	 * @param {{[moment]: moment}} [options]
-	 * @return {string}
 	 */
-	resolveKey (interval, options) {
+	public resolveKey (interval: string, options: { moment: moment.Moment }): string {
 
-		let m = (options && options.moment) ? options.moment.clone().tz('America/New_York') : moment.tz('America/New_York');
+		const m = (options && options.moment) ? options.moment.clone().tz('America/New_York') : moment.tz('America/New_York');
 
 		switch (interval) {
 
@@ -75,6 +84,8 @@ export default class Cache extends Redis {
 				return `${CacheKeys.INTERVAL_KEY}:year:${intervals.yearLabel}:month:${intervals.monthLabel}`;
 			case 'yearly':
 				return `${CacheKeys.INTERVAL_KEY}:year:${intervals.yearLabel}`;
+			default:
+				throw new Error('cache interval not valid');
 
 		}
 
@@ -82,11 +93,8 @@ export default class Cache extends Redis {
 
 	/**
 	 * Resolve the cache labels for an interval
-	 * @param m
-	 * @returns {{minute: *, minuteLabel: (*|{compact}), hour: *, hourLabel: (*|{compact}), day: *, dayLabel: (*|{compact}), month: *, monthLabel: (*|{compact}), week: (*|{dow, doy}), weekLabel: (*|{compact}), year: *, yearLabel: (*|{compact})}}
-	 * @private
 	 */
-	_intervalLabels (m) {
+	private _intervalLabels (m: moment.Moment): IIntervalLabels {
 
 		return {
 			minute: m.minute(),
