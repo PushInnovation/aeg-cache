@@ -1,5 +1,6 @@
+import * as should from 'should';
 import Cache from '../../src/cache';
-import moment from 'moment-timezone';
+import * as moment from 'moment-timezone';
 
 describe('cache', async () => {
 
@@ -9,31 +10,31 @@ describe('cache', async () => {
 		const cache = new Cache('192.168.99.100', 32769, 'test');
 
 		const minutely = cache.resolveKey('minutely', {moment: m});
-		minutely.should.be.equal('i:year:2017:month:01:day:17:hour:00:minute:00');
+		should(minutely).be.equal('i:year:2017:month:01:day:17:hour:00:minute:00');
 
 		const hourly = cache.resolveKey('hourly', {moment: m});
-		hourly.should.be.equal('i:year:2017:month:01:day:17:hour:00');
+		should(hourly).be.equal('i:year:2017:month:01:day:17:hour:00');
 
 		const lastHour = cache.resolveKey('last-hour', {moment: m});
-		lastHour.should.be.equal('i:year:2017:month:01:day:16:hour:23');
+		should(lastHour).be.equal('i:year:2017:month:01:day:16:hour:23');
 
 		const yesterday = cache.resolveKey('yesterday', {moment: m});
-		yesterday.should.be.equal('i:year:2017:month:01:day:16');
+		should(yesterday).be.equal('i:year:2017:month:01:day:16');
 
 		const daily = cache.resolveKey('daily', {moment: m});
-		daily.should.be.equal('i:year:2017:month:01:day:17');
+		should(daily).be.equal('i:year:2017:month:01:day:17');
 
 		const weekly = cache.resolveKey('weekly', {moment: m});
-		weekly.should.be.equal('i:year:2017:week:03');
+		should(weekly).be.equal('i:year:2017:week:03');
 
 		const lastWeek = cache.resolveKey('last-week', {moment: m});
-		lastWeek.should.be.equal('i:year:2017:week:02');
+		should(lastWeek).be.equal('i:year:2017:week:02');
 
 		const monthly = cache.resolveKey('monthly', {moment: m});
-		monthly.should.be.equal('i:year:2017:month:01');
+		should(monthly).be.equal('i:year:2017:month:01');
 
 		const yearly = cache.resolveKey('yearly', {moment: m});
-		yearly.should.be.equal('i:year:2017');
+		should(yearly).be.equal('i:year:2017');
 
 	});
 
