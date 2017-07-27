@@ -42,7 +42,6 @@
   },
   "devDependencies": {
     "@types/mocha": "^2.2.41",
-    "@types/moment": "^2.13.0",
     "@types/moment-timezone": "^0.2.34",
     "@types/node": "^6.0.0",
     "mocha": "^3.2.0",
@@ -55,7 +54,7 @@
     "typescript": "^2.4.1"
   },
   "dependencies": {
-    "@adexchange/aeg-redis": "0.0.168",
+    "@adexchange/aeg-redis": "0.0.172",
     "moment": "^2.18.1",
     "moment-timezone": "^0.5.13"
   },
