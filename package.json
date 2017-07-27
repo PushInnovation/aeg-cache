@@ -54,7 +54,7 @@
     "typescript": "^2.4.1"
   },
   "dependencies": {
-    "@adexchange/aeg-redis": "0.0.172",
+    "@adexchange/aeg-redis": "0.0.176",
     "moment": "^2.18.1",
     "moment-timezone": "^0.5.13"
   },
