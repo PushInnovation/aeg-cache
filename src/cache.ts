@@ -1,6 +1,7 @@
 import Redis from '@adexchange/aeg-redis';
 import * as moment from 'moment-timezone';
 import * as CacheKeys from './cache-keys';
+import { ICacheResolveKeyOptions } from './types';
 
 export interface IIntervalLabels {
 	minute: number;
@@ -42,7 +43,7 @@ export default class Cache extends Redis {
 	/**
 	 * Resolved a cache key based on time intervals
 	 */
-	public resolveKey (interval: string, options: { moment?: moment.Moment }): string {
+	public resolveKey (interval: string, options: ICacheResolveKeyOptions): string {
 
 		const m = (options && options.moment) ? options.moment.clone().tz('America/New_York') : moment.tz('America/New_York');
 
