@@ -1,46 +1,19 @@
-import { IRedisTransaction } from '@adexchange/aeg-redis';
 import { ICache } from './types';
+import { CacheRepositoryTransaction } from './cache-repository-transaction';
 
-export abstract class CacheRepository<T extends IRedisTransaction> {
+export abstract class CacheRepository<T extends CacheRepositoryTransaction> {
 
-	private _version: number;
+	protected _version: number;
 
-	private _process: string;
+	protected _process: string;
 
-	private _cache: ICache;
+	protected _cache: ICache;
 
 	constructor (version: number, process: string, cache: ICache) {
 
 		this._version = version;
 		this._process = process;
 		this._cache = cache;
-
-	}
-
-	/**
-	 * The version of the cache entry
-	 */
-	public get version (): number {
-
-		return this._version;
-
-	}
-
-	/**
-	 * The process that wrote the cache entry
-	 */
-	public get process (): string {
-
-		return this._process;
-
-	}
-
-	/**
-	 * Get the underlying redis cache
-	 */
-	public get cache (): ICache {
-
-		return this._cache;
 
 	}
 
