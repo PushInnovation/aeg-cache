@@ -1,7 +1,7 @@
 import Redis from '@adexchange/aeg-redis';
 import * as moment from 'moment-timezone';
 import * as CacheKeys from './cache-keys';
-import { ICacheResolveKeyOptions } from './types';
+import { ICache, ICacheResolveKeyOptions } from './types';
 
 export interface IIntervalLabels {
 	minute: number;
@@ -29,7 +29,7 @@ moment.updateLocale('en', {
 /**
  * Redis cache that resolves keys based on time frames
  */
-export default class Cache extends Redis {
+export default class Cache extends Redis implements ICache {
 
 	/**
 	 * Constructor
