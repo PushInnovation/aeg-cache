@@ -1,6 +1,7 @@
 import { Transaction } from '@adexchange/aeg-redis';
+import { Base } from '@adexchange/aeg-common';
 
-export abstract class CacheRepositoryTransaction {
+export abstract class CacheRepositoryTransaction extends Base {
 
 	protected _version: number;
 
@@ -9,6 +10,8 @@ export abstract class CacheRepositoryTransaction {
 	protected _transaction: Transaction;
 
 	constructor (version: number, process: string, transaction: Transaction) {
+
+		super();
 
 		this._version = version;
 		this._process = process;

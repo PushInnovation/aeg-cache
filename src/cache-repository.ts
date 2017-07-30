@@ -1,7 +1,8 @@
 import { ICache } from './types';
 import { CacheRepositoryTransaction } from './cache-repository-transaction';
+import { Base } from '@adexchange/aeg-common';
 
-export abstract class CacheRepository<T extends CacheRepositoryTransaction> {
+export abstract class CacheRepository<T extends CacheRepositoryTransaction> extends Base {
 
 	protected _version: number;
 
@@ -10,6 +11,8 @@ export abstract class CacheRepository<T extends CacheRepositoryTransaction> {
 	protected _cache: ICache;
 
 	constructor (version: number, process: string, cache: ICache) {
+
+		super();
 
 		this._version = version;
 		this._process = process;
