@@ -55,7 +55,7 @@
   },
   "dependencies": {
     "@adexchange/aeg-common": "0.0.251",
-    "@adexchange/aeg-redis": "0.0.185",
+    "@adexchange/aeg-redis": "0.0.188",
     "moment": "^2.18.1",
     "moment-timezone": "^0.5.13"
   },
