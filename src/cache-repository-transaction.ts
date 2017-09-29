@@ -1,5 +1,5 @@
-import { Transaction } from '@adexchange/aeg-redis';
-import { Base } from '@adexchange/aeg-common';
+import { Transaction } from '@push_innovation/aeg-redis';
+import { Base } from '@push_innovation/aeg-common';
 
 export abstract class CacheRepositoryTransaction extends Base {
 

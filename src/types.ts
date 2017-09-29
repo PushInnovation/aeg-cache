@@ -1,5 +1,5 @@
 import * as moment from 'moment-timezone';
-import Redis from '@adexchange/aeg-redis';
+import Redis from '@push_innovation/aeg-redis';
 
 export interface ICacheResolveKeyOptions {
 	moment?: moment.Moment;

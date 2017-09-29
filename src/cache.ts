@@ -1,4 +1,4 @@
-import Redis from '@adexchange/aeg-redis';
+import Redis from '@push_innovation/aeg-redis';
 import * as moment from 'moment-timezone';
 import * as CacheKeys from './cache-keys';
 import { ICache, ICacheResolveKeyOptions } from './types';
