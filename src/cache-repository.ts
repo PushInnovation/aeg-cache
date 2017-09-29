@@ -1,6 +1,6 @@
 import { ICache } from './types';
 import { CacheRepositoryTransaction } from './cache-repository-transaction';
-import { Base } from '@adexchange/aeg-common';
+import { Base } from '@push_innovation/aeg-common';
 
 export abstract class CacheRepository<T extends CacheRepositoryTransaction> extends Base {
 
